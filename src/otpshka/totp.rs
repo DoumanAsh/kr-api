@@ -1,8 +1,9 @@
+#![allow(unused)]
+
 use super::hotp::HOTP;
 
 use super::Algorithm;
 
-#[cfg(feature = "std")]
 fn current_time_s() -> u64 {
     use std::time::{SystemTime, UNIX_EPOCH};
     SystemTime::now().duration_since(UNIX_EPOCH)
@@ -64,7 +65,6 @@ impl TOTP {
         self.inner.generate_to(time / self.window, dest)
     }
 
-    #[cfg(feature = "std")]
     #[inline(always)]
     ///Generates pass using current system time from `std`
     pub fn generate_to_now<T: AsMut<[u8]>>(&self, dest: T) {
@@ -98,7 +98,6 @@ impl TOTP {
         false
     }
 
-    #[cfg(feature = "std")]
     #[inline]
     ///Checks whether provided `token` corresponds to current system time.
     pub fn verify_now(&self, token: &str) -> bool {

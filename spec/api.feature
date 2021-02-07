@@ -11,3 +11,10 @@ Feature: API
     Then Get response
     And Validate format
     And Check XBT/USD
+
+  Scenario: Check open order
+    Given I am checking open order
+    And Use API Auth
+    Then Get response
+    And Validate format
+    And Check order

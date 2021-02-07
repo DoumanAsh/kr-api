@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 use ring::hmac;
 
 ///Standard algorithms compatible with `OTP`

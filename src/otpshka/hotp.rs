@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 use core::{mem, ptr};
 
 use ring::hmac;
